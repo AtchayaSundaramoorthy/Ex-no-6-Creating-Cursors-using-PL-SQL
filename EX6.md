@@ -13,8 +13,12 @@ DATE : 08.09.2023
 ### Program:
 
 ### Create employee table
-![dbms 6](https://github.com/AtchayaSundaramoorthy/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393516/c515b448-9201-4e6f-b939-d4cfa5c60368)
-
+```
+CREATE TABLE employee4 (empid NUMBER,empname VARCHAR(10),dept VARCHAR(10),salary NUMBER);
+INSERT INTO employee4 VALUES (1, 'aishu', 'manager', 50000);
+INSERT INTO employee4 VALUES (2, 'harsha', 'sales executive',45000);
+select * from employee4;
+```
 
 ### PLSQL Cursor code
 ![dbms 6 cursor](https://github.com/AtchayaSundaramoorthy/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393516/b29027f9-5313-4bbf-a037-be57784a73d7)
