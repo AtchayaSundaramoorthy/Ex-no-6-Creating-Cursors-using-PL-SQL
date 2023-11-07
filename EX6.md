@@ -2,7 +2,8 @@
 
 DATE : 08.09.2023
 
-### AIM: To create a cursor using PL/SQL.
+### AIM:
+To create a cursor using PL/SQL.
 
 ### Steps:
 1. Create employee table with following attributes (empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
@@ -21,7 +22,29 @@ select * from employee4;
 ```
 
 ### PLSQL Cursor code
-![dbms 6 cursor](https://github.com/AtchayaSundaramoorthy/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393516/b29027f9-5313-4bbf-a037-be57784a73d7)
+```
+declare
+  2  cursor employee4_cursor is
+  3  select empid,empname,dept,salary
+  4  from employee4;
+  5  emp_id number;
+  6  emp_name varchar(20);
+  7  emp_dept varchar(20);
+  8  emp_salary number;
+  9  begin
+ 10  open employee4_cursor;
+ 11  loop
+ 12  fetch employee4_cursor into emp_id,emp_name,emp_dept,emp_salary;
+ 13  exit when employee4_cursor%NOTFOUND;
+ 14  DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id);
+ 15  DBMS_OUTPUT.PUT_LINE('Employee Name: ' || emp_name);
+ 16  DBMS_OUTPUT.PUT_LINE('Department: ' || emp_dept);
+ 17  DBMS_OUTPUT.PUT_LINE('Salary: ' || emp_salary);
+ 18  end loop;
+ 19  close employee4_cursor;
+ 20  end;
+ 21  /
+```
 
 
 ### Output:
