@@ -22,6 +22,8 @@ select * from employee4;
 ```
 
 ### PLSQL Cursor code
+```
+
 declare
   cursor employee4_cursor is
   select empid,empname,dept,salary
@@ -43,6 +45,7 @@ declare
   close employee4_cursor;
   end; 
  /
+```
 
 
 ### Output:
