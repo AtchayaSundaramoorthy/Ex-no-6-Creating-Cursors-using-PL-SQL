@@ -17,34 +17,32 @@ To create a cursor using PL/SQL.
 ```
 CREATE TABLE employee4 (empid NUMBER,empname VARCHAR(10),dept VARCHAR(10),salary NUMBER);
 INSERT INTO employee4 VALUES (1, 'aishu', 'manager', 50000);
-INSERT INTO employee4 VALUES (2, 'harsha', 'sales executive',45000);
+INSERT INTO employee4 VALUES (2, 'harsha', 'sales',45000);
 select * from employee4;
 ```
 
 ### PLSQL Cursor code
-```
 declare
-  2  cursor employee4_cursor is
-  3  select empid,empname,dept,salary
-  4  from employee4;
-  5  emp_id number;
-  6  emp_name varchar(20);
-  7  emp_dept varchar(20);
-  8  emp_salary number;
-  9  begin
- 10  open employee4_cursor;
- 11  loop
- 12  fetch employee4_cursor into emp_id,emp_name,emp_dept,emp_salary;
- 13  exit when employee4_cursor%NOTFOUND;
- 14  DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id);
- 15  DBMS_OUTPUT.PUT_LINE('Employee Name: ' || emp_name);
- 16  DBMS_OUTPUT.PUT_LINE('Department: ' || emp_dept);
- 17  DBMS_OUTPUT.PUT_LINE('Salary: ' || emp_salary);
- 18  end loop;
- 19  close employee4_cursor;
- 20  end;
- 21  /
-```
+  cursor employee4_cursor is
+  select empid,empname,dept,salary
+  from employee4;
+  emp_id number;
+  emp_name varchar(20);
+  emp_dept varchar(20);
+  emp_salary number;
+  begin
+  open employee4_cursor;
+  loop
+  fetch employee4_cursor into emp_id,emp_name,emp_dept,emp_salary;
+  exit when employee4_cursor%NOTFOUND;
+  DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id);
+  DBMS_OUTPUT.PUT_LINE('Employee Name: ' || emp_name);
+  DBMS_OUTPUT.PUT_LINE('Department: ' || emp_dept);
+  DBMS_OUTPUT.PUT_LINE('Salary: ' || emp_salary);
+  end loop;
+  close employee4_cursor;
+  end; 
+ /
 
 
 ### Output:
